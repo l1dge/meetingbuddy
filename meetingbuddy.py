@@ -1,5 +1,9 @@
 from rich import inspect, Console, pretty, Progress
 
+#Docstring
+
+
+
 #Argparser
 
 
@@ -25,3 +29,7 @@ from rich import inspect, Console, pretty, Progress
 
 
 #Screen Display
+
+
+
+#End of speakers
