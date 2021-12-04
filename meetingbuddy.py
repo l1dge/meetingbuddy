@@ -1,25 +1,12 @@
-from rich import print, inspect, console, pretty, progress
-import argparse
+from rich import print, prompt, console, pretty, progress
 from random import shuffle
+from time import sleep
 
 
 """Utility to automatically and randomly select the next person to speak in a
 meeting and alot a time based on meeting length"""
 
 
-#Argparser
-#parser = argparse.ArgumentParser(description='Selects next speaker')
-
-#parser.add_argument('attendees', metavar='attendees', type=list, help='Enter list of attendees')
-#parser.add_argument('meetinglength', metavar='meetinglength', type=int, help='Enter length of meeting slot in minutes')
-
-#args = parser.parse_args()
-
-#attendees = args.attendees
-#meetinglength = args.meetinglength
-
-
-#UserInput
 print("[green]Enter List of Attendees[/green]")
 print("[green]Example input (seperated by spaces):[/green]")
 print("[red]bob julian l1dge[/red]")
@@ -34,18 +21,17 @@ print("[red]120[/red]")
 
 timing = int(input("> "))
 
+slot = round(timing / (len(attendees)+1))
 
-#Meeting Attendees
-def Attendees(who):
-    shuffle(who)
-    for upnext in who:
-        print(f"[blue]Up Next:[/blue] [red] {upnext}[/red]")
+shuffle(attendees)
+for upnext in attendees:
+    print(f"[blue]Up Next:[/blue] [red] {upnext}[/red] {slot}")
+    for step in progress.track(range((slot*60))):
+        sleep(1)
+        step
 
-
-#Speaker Timer
-def SlotTimer(mLength):
-    slot = mLength /  len(attendees)
-    print(slot)
+        print("[blue]Are we ready for the next speaker?[/blue]")
+        prompt.Prompt.ask("Press Enter to continue......")
 
 #Next Speaker
 def NextSpeaker():
@@ -61,6 +47,3 @@ def DisplayCountdown():
 def MeetingEnd():
     pass
 
-
-Attendees(attendees)
-SlotTimer(timing)
