@@ -3,10 +3,6 @@ from random import shuffle
 from time import sleep
 
 
-"""Utility to automatically and randomly select the next person to speak in a
-meeting and alot a time based on meeting length"""
-
-
 print("[green]Enter List of Attendees[/green]")
 print("[green]Example input (seperated by spaces):[/green]")
 print("[red]bob julian l1dge[/red]")
