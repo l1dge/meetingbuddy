@@ -37,17 +37,4 @@ for step in progress.track(range((slot*60))):
     sleep(1)
     step
 
-#Next Speaker
-def NextSpeaker():
-    pass
-
-
-#Countdown Display
-def DisplayCountdown():
-    pass
-
-
-#End of speakers
-def MeetingEnd():
-    pass
 
